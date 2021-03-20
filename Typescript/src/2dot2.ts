@@ -99,3 +99,19 @@ export function addAllValuesInLinkedListRecursively(head: LinkedListNode | undef
 // So when thinking about this solution, I had to be very careful to make sure I consider the edge values and that I process them properly.
 // My first solution only processed the head.next value which meant that we wouldn't have gotten the value of the very head of the LinkedList
 // Okay so recursion in LinkedLists is actually not too bad.
+
+// okay so now let's try to solve the original problem...
+export function recursivelyReturnKthValue(head: LinkedListNode | undefined, k: number): number {
+  if (!head) {
+    return 0;
+  }
+  const position =  1 + recursivelyReturnKthValue(head.next, k);
+  if (position === k) {
+    console.log(head.value);
+  }
+  return position;
+}
+
+// So this is a bit cheating since I kind of saw the solution and I was drawing inspiration from that on the back of my mind, but the path to the
+// solution wasn't too bad. I kind of understood what was going on, where I understood what I was doing during the recursion.
+// I think if this was a real problem, I would have struggled a little bit with the idea of returning something
